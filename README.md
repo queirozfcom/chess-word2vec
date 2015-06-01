@@ -16,10 +16,19 @@ A couple of experiments using Google's word2vec tool to mine information from se
  - Parses PGN files and provides functions and primitives to cycle through games, moves and so on
  - The only lib that has an example of a PGN file consisting of many matches, and there's actually an example that takes each game, executes all moves for it and dumps the FEN representation after every move! Sounds exactly what I need.
  
-- UI
+## Word2vec
 
- - [chessboard.js](https://github.com/oakmac/chessboardjs/)
+- [original word2vec github export](https://github.com/queirozfcom/word2vec)
 
- - [angular-chess](http://theborakompanioni.github.io/angular-chess/#/start)
-  - Packages chessboard.jd and chess.js for use in AngularJS. Beautiful.
+## Data
+
+- [Millionbase 2.2 (1.4G worth of PGN files)](http://www.top-5000.nl/pgn.htm)
+ - I've uploaded it to S3 but the link is private right now
+
+### Other stuff
+
+- [chessboard.js (UI)](https://github.com/oakmac/chessboardjs/)
+
+- [angular-chess (UI)](http://theborakompanioni.github.io/angular-chess/#/start)
+ - Packages chessboard.jd and chess.js for use in AngularJS. Beautiful.
 
