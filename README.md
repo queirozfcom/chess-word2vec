@@ -1,7 +1,7 @@
 # chess-word2vec
 A couple of experiments using Google's word2vec tool to mine information from serialized chess matches
 
-## Potential tools
+## Chess tools
 
 - [lutanho.net PGN to FEN converter (javascript)](http://www.lutanho.net/pgn/pgn2fen.html)
  - Converts from PGN to FEN
@@ -16,11 +16,10 @@ A couple of experiments using Google's word2vec tool to mine information from se
  - Parses PGN files and provides functions and primitives to cycle through games, moves and so on
  - The only lib that has an example of a PGN file consisting of many matches, and there's actually an example that takes each game, executes all moves for it and dumps the FEN representation after every move! Sounds exactly what I need.
  
-### UI
-Who knows?
+- UI
 
-- [chessboard.js](https://github.com/oakmac/chessboardjs/)
+ - [chessboard.js](https://github.com/oakmac/chessboardjs/)
 
-- [angular-chess](http://theborakompanioni.github.io/angular-chess/#/start)
- - Packages chessboard.jd and chess.js for use in AngularJS. Beautiful.
+ - [angular-chess](http://theborakompanioni.github.io/angular-chess/#/start)
+  - Packages chessboard.jd and chess.js for use in AngularJS. Beautiful.
 
