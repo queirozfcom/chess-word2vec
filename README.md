@@ -20,6 +20,14 @@ A couple of experiments using Google's word2vec tool to mine information from se
 ## Word2vec
 
 - [original word2vec github export](https://github.com/queirozfcom/word2vec)
+- [Python implementation using the original C code for learning but Python for everything else](https://github.com/danielfrg/word2vec)
+- [Deeplearning4j](https://github.com/deeplearning4j/deeplearning4j)
+ - can do a whole lot more than just word2vec
+ - Distributed/Parellel/GPU implementations
+ - Plugs in nicely to MR, Spark, AWS, etc
+ - 2K commits
+- [gensim](https://github.com/piskvorky/gensim/)
+- [word2vec on cuda](https://github.com/whatupbiatch/cuda-word2vec)
 
 ## Data
 
