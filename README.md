@@ -11,6 +11,7 @@ A couple of experiments using Google's word2vec tool to mine information from se
 
 - [Chess.js](https://github.com/jhlywa/chess.js)
  - Mature JS lib; can be used in the browser or on nodeJS.
+ - Has a method called `.validate_fen(fen)` that could be very useful to test the validity of a given FEN string.
 
 - [PGN Parser in golang](https://github.com/wfreeman/pgn)
  - Parses PGN files and provides functions and primitives to cycle through games, moves and so on
