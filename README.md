@@ -26,7 +26,7 @@ A couple of experiments using Google's word2vec tool to mine information from se
 - [Millionbase 2.2 (1.4G worth of PGN files)](http://www.top-5000.nl/pgn.htm)
  - I've uploaded it to S3 but the link is private right now
 
-### Other stuff
+### Other
 
 - [chessboard.js (UI)](https://github.com/oakmac/chessboardjs/)
 
