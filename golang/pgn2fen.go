@@ -18,6 +18,10 @@ func main() {
 
     argsWithoutProg := os.Args[1:]
 
+    if len(argsWithoutProg) == 0{
+        printHelpAndExit()
+    } 
+
     re := regexp.MustCompile(`^.+\/([^\/]+)$`)
 
     pgnFilePath := argsWithoutProg[0]
@@ -71,18 +75,9 @@ func main() {
             // print out FEN for each move in the game
             fen := strings.TrimSpace(b.String())
 
-            onlyPiecesRE := regexp.MustCompile(`^([^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+)\s.+$`)
+            cleanLine := cleanFENString(fen)      
 
-            onlyPiecesMatch := onlyPiecesRE.FindAllStringSubmatch(fen,-1)
-
-            if onlyPiecesMatch == nil {
-                log.Fatal("Invalid FEN!")
-            }
-
-            onlyPieces := onlyPiecesMatch[0][1]
-
-            newLine := fmt.Sprint(onlyPieces," ")
-            w.WriteString(newLine)
+            w.WriteString(cleanLine)
         }
     }
     
@@ -93,6 +88,27 @@ func main() {
     elapsed := time.Since(start)
     log.Printf("Prcessing took %s", elapsed)
 
+}
+
+func cleanFENString(input string) string{
+
+    onlyPiecesRE := regexp.MustCompile(`^([^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+\/[^\/\s]+)\s.+$`)
+
+    onlyPiecesMatch := onlyPiecesRE.FindAllStringSubmatch(input,-1)
+
+    if onlyPiecesMatch == nil {
+      log.Fatal("Invalid FEN!")
+    }
+
+    onlyPieces := onlyPiecesMatch[0][1]
+
+    newLine := fmt.Sprint(onlyPieces," ")
+
+    // replace forward slashes with underscores
+    slashesRE := regexp.MustCompile(`\/`)
+    newLine  = slashesRE.ReplaceAllString(newLine,"_")
+
+    return newLine
 }
 
 func makeOutputFile(dirName, fileName string) string {
@@ -110,4 +126,12 @@ func makeOutputFile(dirName, fileName string) string {
     outputFileName := fmt.Sprint("./",dirNameTrailingSlash,fileName)
 
     return outputFileName
+}
+
+func printHelpAndExit(){
+    fmt.Println("")
+    fmt.Println("Usage: go run pgn2fen.go <pathToInputPGNFile> <pathToOutputDirectory>")
+    fmt.Println("")
+    
+    os.Exit(0)
 }
