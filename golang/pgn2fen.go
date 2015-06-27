@@ -72,6 +72,10 @@ func main() {
             // make the move on the board
             err = b.MakeMove(move)
 
+            if err != nil {
+                log.Fatal("bad move!")
+            }
+
             // print out FEN for each move in the game
             fen := strings.TrimSpace(b.String())
 
@@ -79,6 +83,7 @@ func main() {
 
             w.WriteString(cleanLine)
         }
+        w.WriteString("\n")
     }
     
     w.Flush()
@@ -102,11 +107,11 @@ func cleanFENString(input string) string{
 
     onlyPieces := onlyPiecesMatch[0][1]
 
-    newLine := fmt.Sprint(onlyPieces," ")
+    newLine := fmt.Sprint(" ",onlyPieces," ")
 
     // replace forward slashes with underscores
-    slashesRE := regexp.MustCompile(`\/`)
-    newLine  = slashesRE.ReplaceAllString(newLine,"_")
+    //slashesRE := regexp.MustCompile(`\/`)
+    //newLine  = slashesRE.ReplaceAllString(newLine,"_")
 
     return newLine
 }
