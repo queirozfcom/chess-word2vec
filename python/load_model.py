@@ -23,7 +23,7 @@ def main(model_file):
 
 	path_to_model_file  = current_dir+"/"+model_file
 	global model
-	model = Word2Vec.load(path_to_model_file,binary=False)
+	model = Word2Vec.load(path_to_model_file)
 
 	print("\nLook at https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec to see all interesting things you can do with a model.\n")
 	print("The model has been loaded into a variable called model.")
