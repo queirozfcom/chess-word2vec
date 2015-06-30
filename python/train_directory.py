@@ -8,7 +8,7 @@ def usage():
 
         Where
             <input_dir> is the path to the directory where files used for training can be found, e.g. ../fen_output
-            <output_file> is the path where the model will be saved. Default value is ../learned_vectors/output.model.bin
+            <output_file> is the path where the model (in binary form) will be saved. Default value is ../learned_vectors/output.model.bin
         """
     print(txt)  
 
