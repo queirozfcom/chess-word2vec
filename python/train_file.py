@@ -27,7 +27,7 @@ def main(input_file,output_file):
 
 	model = word2vec.Word2Vec(sentences,workers=8)
 
-	model.save_word2vec_format(path_to_output, binary=False)
+	model.save(path_to_output, binary=False)
 
 
 if __name__ == "__main__":

@@ -4,12 +4,12 @@ from gensim.models.word2vec import Word2Vec
 
 def usage():
     txt = """
-        Load a previously saved binary vector model and open a python shell to manipulate it
+        Load a previously saved vector model and open a python shell to manipulate it
 
-        Usage: python -i load_model.py <binary_model>
+        Usage: python -i load_model.py <text_model>
 
         Where
-            <binary_model> is the path to the previously saved binary model, e.g. ../fen_output/learned_vectors/output.model.bin
+            <text_model> is the path to the previously saved model (in text format), e.g. ../fen_output/learned_vectors/output.model.txt
         """
     print(txt)  
 
@@ -23,7 +23,7 @@ def main(model_file):
 
 	path_to_model_file  = current_dir+"/"+model_file
 	global model
-	model = Word2Vec.load_word2vec_format(path_to_model_file,binary=False)
+	model = Word2Vec.load(path_to_model_file,binary=False)
 
 	print("\nLook at https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec to see all interesting things you can do with a model.\n")
 	print("The model has been loaded into a variable called model.")
