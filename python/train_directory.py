@@ -8,7 +8,7 @@ def usage():
 
         Where
             <input_dir> is the path to the directory where files used for training can be found, e.g. ../fen_output
-            <output_file> is the path where the model (in binary form) will be saved. Default value is ../learned_vectors/output.model.bin
+            <output_file> is the path where the model (in text form) will be saved. Default value is ../learned_vectors/output.model.txt
         """
     print(txt)  
 
@@ -23,8 +23,6 @@ class MySentences(object):
             for line in open(os.path.join(self.dirname, fname)):
                 yield line.split()
 
-
-
 def main(input_dir,output_file):
     current_dir = os.path.dirname(os.path.realpath(__file__))
     
@@ -35,7 +33,7 @@ def main(input_dir,output_file):
 
     model = gensim.models.Word2Vec(sentences,workers=8)    
 
-    model.save_word2vec_format(path_to_output_file,binary=True)
+    model.save(path_to_output_file)
     
 
 
@@ -47,7 +45,7 @@ if __name__ == "__main__":
         sys.exit(2)
     else:
         input_dir = args[0]
-        output_file = args[1] if len(args) == 2 else "../learned_vectors/output.model.bin" 
+        output_file = args[1] if len(args) == 2 else "../learned_vectors/output.model.txt" 
         logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
         main(input_dir,output_file)
 
