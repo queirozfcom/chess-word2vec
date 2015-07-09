@@ -22,7 +22,6 @@ def main(input_file,output_file):
 	path_to_input  = current_dir+"/"+input_file
 	path_to_output = current_dir+"/"+output_file
 
-
 	sentences = word2vec.LineSentence(path_to_input)
 
 	model = word2vec.Word2Vec(sentences,workers=8)

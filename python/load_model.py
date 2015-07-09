@@ -13,8 +13,6 @@ def usage():
         """
     print(txt)  
 
-print(__name__)
-
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 def main(model_file):
